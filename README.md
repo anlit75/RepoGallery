@@ -145,6 +145,16 @@ Your workflow then hands `public/` to `actions/deploy-pages`.
 ### Want to learn more?
 Check out the `scripts/`, `templates/` and `tests/` folders.
 
+Dependencies live in `pyproject.toml` and are locked with [uv](https://docs.astral.sh/uv/).
+To run the tests locally:
+
+```bash
+uv run --dev pytest
+```
+
+`requirements.txt` is generated from `uv.lock` (`uv export --no-dev --no-emit-project`) and is
+what the action installs; regenerate it whenever you change a dependency.
+
 ## ☕ Buy me a coffee
 Enjoying this project? Keep me caffeinated so I can keep improving it! <br>
 Support my work on Buy Me a Coffee :sparkling_heart:

@@ -173,3 +173,6 @@ cython_debug/
 # RepoGallery build output
 public/
 index.html
+
+# uv
+.venv/
