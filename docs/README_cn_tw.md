@@ -142,6 +142,15 @@ commit 並 push，這個 push 就會重新部署頁面。
 ### 想了解更多？
 可以看看 `scripts/`、`templates/` 和 `tests/` 這幾個資料夾。
 
+依賴宣告在 `pyproject.toml`，用 [uv](https://docs.astral.sh/uv/) 鎖定版本。本機跑測試：
+
+```bash
+uv run --dev pytest
+```
+
+`requirements.txt` 是從 `uv.lock` 產生的（`uv export --no-dev --no-emit-project`），
+action 安裝的就是它；改動依賴後記得重新產生。
+
 ## ☕ 請我喝杯咖啡
 喜歡這個專案嗎？請我喝杯咖啡，讓我有動力繼續改進它！<br>
 在 Buy Me a Coffee 上支持我 :sparkling_heart:

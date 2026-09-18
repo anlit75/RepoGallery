@@ -5,6 +5,20 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),\
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.1.0] - 2026-09-18
+### Changed
+- Dependencies are now declared in `pyproject.toml` and resolved by uv, with `uv.lock`
+  committed. `requirements.txt` is generated from that lock with
+  `uv export --no-dev --no-emit-project` and carries exact versions and hashes, so every
+  user's build installs the same artifacts instead of whatever `~=` resolves to that day.
+- `action.yml` is unchanged and still installs `requirements.txt` with pip: uv stays a
+  maintainer tool, and users gain no third-party action in their workflow.
+- CI runs `uv run --locked --dev pytest` and fails if `requirements.txt` has drifted
+  from `uv.lock`.
+
+### Removed
+- `requirements-dev.txt`, replaced by the `dev` dependency group in `pyproject.toml`.
+
 ## [2.0.1] - 2026-09-18
 ### Fixed
 - `examples/starter/assets/custom_image.yaml` still mapped `RepoGallery` to an image that
