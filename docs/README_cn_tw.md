@@ -42,7 +42,7 @@ config.yaml                     ← 你的設定
 assets/custom_image.yaml        ← 選用，指定專案圖片
 ```
 
-安裝就這樣而已。產生器本身留在上游 repository，透過 `anlit75/RepoGallery@v1` 這個 action 執行，
+安裝就這樣而已。產生器本身留在上游 repository，透過 `anlit75/RepoGallery@v2` 這個 action 執行，
 所以你的 repository 裡永遠不會有一份引擎程式碼的複本。
 
 ### 步驟 2. **GitHub 設定**
@@ -95,17 +95,17 @@ commit 並 push，這個 push 就會重新部署頁面。
 
 不用同步，也不會有合併衝突。
 
-你的 workflow pin 在 `anlit75/RepoGallery@v1`。`v1` 這個 tag 永遠指向最新的 `1.x` 版本，
+你的 workflow pin 在 `anlit75/RepoGallery@v2`。`v2` 這個 tag 永遠指向最新的 `2.x` 版本，
 所以**修好的 bug 和新功能會在下一次排程執行時自動送達**，你什麼都不用做。
 
-當有破壞性變更的 `v2` 發佈時，release notes 會說明改了什麼；升級只要改一行：
+當有破壞性變更的 `v3` 發佈時，release notes 會說明改了什麼；升級只要改一行：
 
 ```diff
--      - uses: anlit75/RepoGallery@v1
-+      - uses: anlit75/RepoGallery@v2
+-      - uses: anlit75/RepoGallery@v2
++      - uses: anlit75/RepoGallery@v3
 ```
 
-如果想鎖定特定版本，可以直接寫完整的 tag，例如 `anlit75/RepoGallery@v1.0.0`。
+如果想鎖定特定版本，可以直接寫完整的 tag，例如 `anlit75/RepoGallery@v2.0.0`。
 
 ### 從 fork 版本遷移（v1.2.0 以前）
 

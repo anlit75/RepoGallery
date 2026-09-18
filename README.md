@@ -43,7 +43,7 @@ assets/custom_image.yaml        ← optional per-project images
 ```
 
 That is the whole installation. The generator itself stays in this repository and runs from
-the `anlit75/RepoGallery@v1` action, so you never hold a copy of it.
+the `anlit75/RepoGallery@v2` action, so you never hold a copy of it.
 
 ### Step 2. **GitHub Settings**
 
@@ -96,19 +96,19 @@ Commit and push; that push redeploys the page.
 
 Nothing to sync, nothing to merge.
 
-Your workflow pins `anlit75/RepoGallery@v1`. The `v1` tag always points at the newest `1.x`
+Your workflow pins `anlit75/RepoGallery@v2`. The `v2` tag always points at the newest `2.x`
 release, so **bug fixes and improvements reach you on the next scheduled run** without you
 touching anything.
 
-When a `v2` is released with breaking changes, the release notes will tell you what changed;
+When a `v3` is released with breaking changes, the release notes will tell you what changed;
 upgrade by editing one line:
 
 ```diff
--      - uses: anlit75/RepoGallery@v1
-+      - uses: anlit75/RepoGallery@v2
+-      - uses: anlit75/RepoGallery@v2
++      - uses: anlit75/RepoGallery@v3
 ```
 
-To pin an exact version instead, use a full tag such as `anlit75/RepoGallery@v1.0.0`.
+To pin an exact version instead, use a full tag such as `anlit75/RepoGallery@v2.0.0`.
 
 ### Migrating from a fork (v1.2.0 and earlier)
 
