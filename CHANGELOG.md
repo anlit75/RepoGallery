@@ -19,6 +19,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Regression tests (`tests/`) and a CI workflow running them on every pull request.
 - A release workflow that moves the floating major tag, so patches reach pinned users.
 
+### Changed
+- Pinned actions moved to the releases that run on Node.js 24, ahead of the Node.js 20
+  runner deprecation: `checkout@v5`, `setup-python@v6`, `upload-pages-artifact@v5` and
+  `deploy-pages@v5`. `upload-pages-artifact` now excludes dotfiles from the artifact by
+  default; pass `include-hidden-files: true` if your site needs them.
+
 ### Fixed
 - Only the first 30 repositories were ever fetched; the API is now paginated.
 - Pull request counts were requested unauthenticated and silently fell back to 0.
