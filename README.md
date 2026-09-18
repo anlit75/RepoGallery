@@ -117,9 +117,7 @@ Older versions were installed by forking this repository. To move over:
 1. In your fork, delete everything **except** `config.yaml` and `assets/custom_image.yaml`.
 2. Copy in `examples/starter/.github/workflows/gallery.yml`.
 3. Remove the `site.version` key from your `config.yaml` — it no longer exists.
-4. Optionally add `site.author` and `site.email`; the site used to hard-code the upstream
-   author's details, and now shows yours (or nothing, if you leave them blank).
-5. Commit and push.
+4. Commit and push.
 
 Your Pages URL and your settings are preserved.
 
