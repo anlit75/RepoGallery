@@ -16,7 +16,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   are no longer versioned, so `site.version` was removed from `config.yaml`.
 
 ### Added
-- `site.author` and `site.email` in `config.yaml`. Contact links are hidden when unset.
 - Regression tests (`tests/`) and a CI workflow running them on every pull request.
 - A release workflow that moves the floating major tag, so patches reach pinned users.
 
@@ -25,8 +24,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Pull request counts were requested unauthenticated and silently fell back to 0.
 - Repository metadata was interpolated into the page unescaped; autoescape is now on and the
   Live Demo button no longer builds inline JavaScript from the homepage URL.
-- The upstream author's name and private email were hard-coded into every generated site.
-- The footer mail link read an undefined variable and always produced an empty `mailto:`.
+- The footer mail icon read an undefined variable (`{{ mail }}`) and always produced an
+  empty `mailto:`; it now uses the same address as the footer contact row.
 - An unknown `random_image_theme` crashed the generator instead of falling back to text cards.
 - `sort.descending` from `config.yaml` was ignored by the front-end sort menu.
 

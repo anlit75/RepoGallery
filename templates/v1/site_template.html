@@ -25,7 +25,8 @@
   <head>
     <meta charset="utf-8" />
     <title>{{ title or "RepoGallery" }}</title>
-    <meta name="author" content="{{ author }}" />
+    <meta name="author" content="Ting-An Cheng" />
+    <meta name="keywords" content="RepoGallery" />
     <meta name="description" content="{{ description }}" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta property="og:type" content="website" />
@@ -43,7 +44,7 @@
     <!--Header Section-->
     <header class="header-section">
       <div class="container">
-        <a href="index.html" class="float-left">{{ author }}</a>
+        <a href="index.html" class="float-left">RepoGallery</a>
         <div class="float-right">
           <button class="theme-toggle" id="theme-toggle" aria-label="Toggle colour theme">
             {% if theme == "light" %}
@@ -65,7 +66,7 @@
         <nav class="menu">
           <ul>
             <li class="active"><a href="index.html">home</a></li>
-            {% if email %}<li><a href="mailto:{{ email }}">contact</a></li>{% endif %}
+            <li><a href="mailto:{{ email }}">contact</a></li>
           </ul>
         </nav>
       </div>
@@ -77,7 +78,7 @@
         <div class="row">
           {% if user_img %}
           <div class="hero-image col-sm-6 col-xs-12">
-            <img src="{{ user_img }}" alt="{{ author }}" />
+            <img src="{{ user_img }}" alt="" />
           </div>
           {% endif %}
           <div class="hero-content col-sm-6 col-xs-12">
@@ -126,6 +127,7 @@
     </section>
 
     <!--Footer Section-->
+    {%- set contact_email = "611415132@alum.ccu.edu.tw" %}
     <footer class="footer-section">
       {% if footer.show %}
       <div class="container footer-top">
@@ -133,20 +135,18 @@
         {% for icon, href in zip(footer.icons, footer.href) %}
         <a href="{{ href }}" aria-label="{{ icon }}"><ion-icon name="logo-{{ icon }}"></ion-icon></a>
         {% endfor %}
-        {% if email %}<a href="mailto:{{ email }}" aria-label="Email"><ion-icon name="mail"></ion-icon></a>{% endif %}
+        <a href="mailto:{{ contact_email }}" aria-label="Email"><ion-icon name="mail"></ion-icon></a>
       </div>
       {% endif %}
       <div class="footer-bottom">
         <div class="container">
           <div class="footer-copyright">
-            <p>Copyright &copy; <a href="https://github.com/{{ username }}">{{ author }}</a></p>
-            <p class="auto-gen">Built with <a href="https://github.com/anlit75/RepoGallery">RepoGallery</a> on {{ build_time }}</p>
+            <p>Copyright &copy; 2025 <a href="https://github.com/anlit75">Ting-An Cheng</a></p>
+            <p class="auto-gen">Auto build by <a href="https://github.com/anlit75/RepoGallery">anlit75@RepoGallery</a> on {{ build_time }}</p>
           </div>
-          {% if email %}
           <div class="footer-contact">
-            <p><span>Email :</span><a href="mailto:{{ email }}">{{ email }}</a></p>
+            <p><span>Email :</span><a href="mailto:{{ contact_email }}">{{ contact_email }}</a></p>
           </div>
-          {% endif %}
         </div>
       </div>
     </footer>

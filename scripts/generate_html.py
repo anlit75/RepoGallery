@@ -160,8 +160,6 @@ class HTMLGenerator:
         cards_html = self._render_cards(repos)
         github_info = self._get_github_user_info()
 
-        author = self._site_cfg('author') or self._username
-        email = self._site_cfg('email') or github_info.get('email') or ''
         user_img = self._site_cfg('picture_path') or github_info.get('avatar_url', '')
 
         full_html = self._site_template.render(
@@ -169,8 +167,7 @@ class HTMLGenerator:
             theme=self._site_cfg('theme', 'light'),
             site_icon=self._site_cfg('site_icon') or DEFAULT_SITE_ICON,
             username=self._username,
-            author=author,
-            email=email,
+            email=github_info.get('email', ''),
             title=str(self._site_cfg('title', '')).replace('GITHUB_USERNAME', self._username),
             description=self._site_cfg('description', ''),
             user_img=user_img if self._site_cfg('show_picture', False) else '',

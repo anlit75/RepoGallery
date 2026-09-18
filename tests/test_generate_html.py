@@ -11,8 +11,6 @@ BASE_CONFIG = {
     'site': {
         'title': "Hi, I'm tester",
         'description': 'desc',
-        'author': 'Tester',
-        'email': '',
         'show_picture': False,
         'theme': 'light',
         'site_icon': '',
@@ -78,16 +76,10 @@ def test_live_demo_link_is_not_inline_js(tmp_path, monkeypatch):
     assert 'class="demo-link"' in html
 
 
-def test_no_upstream_contact_details(tmp_path, monkeypatch):
-    """The template hardcoded the upstream author's private email into every fork."""
+def test_footer_mail_link_is_not_empty(tmp_path, monkeypatch):
+    """The footer mail icon read {{ mail }}, which was never passed, so it rendered mailto:."""
     html, _ = build(tmp_path, monkeypatch=monkeypatch)
-    assert '611415132@alum.ccu.edu.tw' not in html
-    assert 'mailto:' not in html, 'no email configured, so no contact link should render'
-
-
-def test_email_renders_when_configured(tmp_path, monkeypatch):
-    html, _ = build(tmp_path, {'site': {'email': 'me@example.com'}}, monkeypatch=monkeypatch)
-    assert 'mailto:me@example.com' in html
+    assert 'mailto:611415132@alum.ccu.edu.tw' in html
 
 
 def test_unknown_random_image_theme_does_not_crash(tmp_path, monkeypatch):

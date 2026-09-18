@@ -114,9 +114,7 @@ commit 並 push，這個 push 就會重新部署頁面。
 1. 在你的 fork 裡，刪掉 `config.yaml` 和 `assets/custom_image.yaml` **以外**的所有檔案。
 2. 把 `examples/starter/.github/workflows/gallery.yml` 複製進去。
 3. 從你的 `config.yaml` 移除 `site.version` 這個欄位，它已經不存在了。
-4. 可以補上 `site.author` 和 `site.email`。舊版把上游作者的資訊寫死在頁面裡，
-   新版顯示的是你的（留空則不顯示）。
-5. commit 並 push。
+4. commit 並 push。
 
 你的 Pages 網址和設定都會保留。
 

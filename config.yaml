@@ -5,8 +5,6 @@
 #    - title: Site title. Default is "Hi, I'm GITHUB_USERNAME",
 #             where GITHUB_USERNAME will be replaced by your GitHub username.
 #    - description: Site description
-#    - author: Name shown in the header and footer. Defaults to your GitHub username.
-#    - email: Contact email. Leave empty to hide every contact link.
 #    - show_picture: Enable / Disable profile picture
 #    - picture_path: Profile picture path. Default is your GitHub profile picture.
 #                    Ignored if show_picture is false.
@@ -39,8 +37,6 @@
 site:
   title: "Hi, I'm GITHUB_USERNAME"
   description: "This is a collection of my awesome GitHub projects."
-  author: ""
-  email: ""
   show_picture: true
   picture_path: ""
   theme: "light"
