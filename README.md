@@ -110,16 +110,8 @@ upgrade by editing one line:
 
 To pin an exact version instead, use a full tag such as `anlit75/RepoGallery@v2.0.0`.
 
-### Migrating from a fork (v1.2.0 and earlier)
-
-Older versions were installed by forking this repository. To move over:
-
-1. In your fork, delete everything **except** `config.yaml` and `assets/custom_image.yaml`.
-2. Copy in `examples/starter/.github/workflows/gallery.yml`.
-3. Remove the `site.version` key from your `config.yaml` — it no longer exists.
-4. Commit and push.
-
-Your Pages URL and your settings are preserved.
+Upgrading a fork-based install from v1.2.0 or earlier? The steps are in the
+[2.0.0 changelog entry](CHANGELOG.md#200---2026-09-18).
 
 ## ⚙️ Action Inputs
 
@@ -144,16 +136,6 @@ Your workflow then hands `public/` to `actions/deploy-pages`.
 
 ### Want to learn more?
 Check out the `scripts/`, `templates/` and `tests/` folders.
-
-Dependencies live in `pyproject.toml` and are locked with [uv](https://docs.astral.sh/uv/).
-To run the tests locally:
-
-```bash
-uv run --dev pytest
-```
-
-`requirements.txt` is generated from `uv.lock` (`uv export --no-dev --no-emit-project`) and is
-what the action installs; regenerate it whenever you change a dependency.
 
 ## ☕ Buy me a coffee
 Enjoying this project? Keep me caffeinated so I can keep improving it! <br>
