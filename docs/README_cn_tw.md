@@ -107,16 +107,8 @@ commit 並 push，這個 push 就會重新部署頁面。
 
 如果想鎖定特定版本，可以直接寫完整的 tag，例如 `anlit75/RepoGallery@v2.0.0`。
 
-### 從 fork 版本遷移（v1.2.0 以前）
-
-舊版本是用 fork 的方式安裝的。遷移方式：
-
-1. 在你的 fork 裡，刪掉 `config.yaml` 和 `assets/custom_image.yaml` **以外**的所有檔案。
-2. 把 `examples/starter/.github/workflows/gallery.yml` 複製進去。
-3. 從你的 `config.yaml` 移除 `site.version` 這個欄位，它已經不存在了。
-4. commit 並 push。
-
-你的 Pages 網址和設定都會保留。
+從 v1.2.0 以前的 fork 版本升級？步驟在
+[2.0.0 的 changelog 條目](../CHANGELOG.md#200---2026-09-18)。
 
 ## ⚙️ Action 參數
 
@@ -141,15 +133,6 @@ commit 並 push，這個 push 就會重新部署頁面。
 
 ### 想了解更多？
 可以看看 `scripts/`、`templates/` 和 `tests/` 這幾個資料夾。
-
-依賴宣告在 `pyproject.toml`，用 [uv](https://docs.astral.sh/uv/) 鎖定版本。本機跑測試：
-
-```bash
-uv run --dev pytest
-```
-
-`requirements.txt` 是從 `uv.lock` 產生的（`uv export --no-dev --no-emit-project`），
-action 安裝的就是它；改動依賴後記得重新產生。
 
 ## ☕ 請我喝杯咖啡
 喜歡這個專案嗎？請我喝杯咖啡，讓我有動力繼續改進它！<br>

@@ -34,7 +34,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - **BREAKING**: RepoGallery is now installed as a GitHub Action (`anlit75/RepoGallery@v2`)\
   instead of by forking. Your repository holds three files; the generator stays upstream,\
-  so upgrades no longer produce merge conflicts. See "Migrating from a fork" in the README.
+  so upgrades no longer produce merge conflicts.
+
+  Migrating a fork-based install: in your fork, delete everything except `config.yaml` and
+  `assets/custom_image.yaml`, copy in `examples/starter/.github/workflows/gallery.yml`,
+  remove the `site.version` key from your `config.yaml`, then commit and push. Your Pages
+  URL and your settings are preserved.
 - `generate_html.py` now takes `--config`, `--templates`, `--output` and `--assets`\
   instead of assuming the repository root as the working directory.
 - The site is written to `public/` with `css/`, `js/` and `img/` beside it; template paths\
