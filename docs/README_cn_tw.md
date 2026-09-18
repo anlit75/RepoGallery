@@ -1,172 +1,155 @@
 <p align="center">
-   <img width="100%" src="../assets/doc_img/RepoGallery-banner-dark.png" alt="RepoGallery Logo" />
+   <img width="100%" src="img/RepoGallery-banner-dark.png" alt="RepoGallery Logo" />
    <h1 align="center">RepoGallery</h1>
-   <h3 align="center">Just fork &amp; good to go!</h3>
-   <p align="center">A beautiful showcase for all your GitHub repos. :art:</p>
+   <h3 align="center">三個檔案，馬上開始！</h3>
+   <p align="center">為你所有的 GitHub 專案打造的精美展示頁。:art:</p>
 </p>
 
 <br>
+
+<p align="center"> <a href="https://anlit75.github.io/RepoGallery">觀看線上範例</a>  |  <a href="https://anson-cheng.github.io/RepoGallery-demo-dark">更多範例</a></p>
+
+<br>
+
+<p align="center"> <a href="../README.md">English</a>  |  <a href="README_cn_tw.md">繁體中文</a></p>
+
+<br>
+
+<h2 align="center">✨ 主要特色 ✨</h2>
 
 <p align="center">
-  <a href="https://anlit75.github.io/RepoGallery">觀看線上展示</a>  |  <a href="https://anson-cheng.github.io/RepoGallery-demo-dark">更多範例</a>
+  🔹 安裝簡單 • ⚡ 自動部署 <br>
+  🎨 高度自訂 • 💎 現代化設計 <br>
+  🔄 升級不會有合併衝突 • 🚀 提供線上範例
 </p>
 
 <br>
 
-<p align="center">
-  <a href="README.md">English</a>  |  <a href="docs/README_cn_tw.md">繁體中文</a>
-</p>
+## :gear: 事前準備
 
-<br>
-
-<h2 align="center">✨ 主要優勢 ✨</h2>
-
-<p align="center">
-  🔹 簡易設定 • ⚡ 自動化部署 <br>
-  🎨 可自訂風格 • 💎 現代化設計 <br>
-  🔄 輕鬆更新 • 🚀 提供線上 Demo
-</p>
-
-<br>
-
-## :gear: 先決條件
-
-在開始之前，請先確保你擁有一個 **GitHub 帳號**。
+一個 **GitHub 帳號**，以及一個用來發佈頁面的 repository。全新的空 repository 就可以，
+**不需要 fork 任何東西**。
 
 ## :rocket: 快速開始
 
-### 第 1 步：**Fork 此專案**
+### 步驟 1. **複製起始檔案**
 
-點擊本頁右上方的 **Fork** <img src="../assets/doc_img/fork.png" style="height: 20px !important;width: 20px !important;" > 按鈕，建立你自己的倉庫副本。
+把 [`examples/starter/`](../examples/starter) 裡的三個檔案複製到你自己的 repository：
 
-> [!TIP]\
-> 建議將此專案名稱保持為 `RepoGallery`。
+```
+.github/workflows/gallery.yml   ← 幫你執行 RepoGallery
+config.yaml                     ← 你的設定
+assets/custom_image.yaml        ← 選用，指定專案圖片
+```
 
-### 第 2 步：**GitHub 設定**
+安裝就這樣而已。產生器本身留在上游 repository，透過 `anlit75/RepoGallery@v1` 這個 action 執行，
+所以你的 repository 裡永遠不會有一份引擎程式碼的複本。
+
+### 步驟 2. **GitHub 設定**
 
 > [!IMPORTANT]\
-> 這些設定**必須**在 GitHub 網站上進行（GitHub 手機板不支援這些設定）。
-
-請確認你的倉庫設定如下：
+> 這些設定**必須**透過 GitHub 網頁版操作（GitHub Mobile 不支援）。
 
 #### **A. 設定 GitHub Pages**
 <details>
 <summary>前往 <strong>Settings > Pages</strong></summary>
-   <img width="100%" style="padding: 10px;" src="../assets/doc_img/pages.png" alt=""/>
+   <img width="100%" style="padding: 10px;" src="img/pages.png" alt=""/>
 </details>
 
 <details>
-<summary>✅ 設定 <code>Build and deployment</code> 的 <strong>Source</strong> 為 <strong>GitHub Actions</strong></summary>
-   <img width="100%" style="padding: 10px;" src="../assets/doc_img/build_and_deployment.png" alt=""/>
+<summary>✅ 將 <code>Build and deployment</code> 的 <strong>Source</strong> 設為 <strong>GitHub Actions</strong></summary>
+   <img width="100%" style="padding: 10px;" src="img/build_and_deployment.png" alt=""/>
 </details>
 
 #### **B. 啟用 GitHub Actions**
 <details>
 <summary>前往 <strong>Settings > Actions > General</strong></summary>
-   <img width="100%" style="padding: 10px;" src="../assets/doc_img/actions_general.png" alt=""/>
+   <img width="100%" style="padding: 10px;" src="img/actions_general.png" alt=""/>
 </details>
 
 <details>
 <summary>✅ 將 <code>Action permissions</code> 設為 <strong>Allow all actions and reusable workflows</strong></summary>
-   <img width="100%" style="padding: 10px;" src="../assets/doc_img/actions_permissions.png" alt=""/>
+   <img width="100%" style="padding: 10px;" src="img/actions_permissions.png" alt=""/>
 </details>
 
-#### **C. 啟用 Workflows**
-前往 **Actions** <img src="../assets/doc_img/actions.png" style="height: 20px !important;width: 20px !important;" > 分頁
- 1. 你會看到默認情況下 **Workflows** 處於停用狀態
-      <details>
-      <summary>點擊 <strong>I understand my workflows, go ahead and enable them</strong></summary>
-         <p align="left"><img width="100%" style="padding: 10px;" src="../assets/doc_img/workflows_enable.png" alt=""/></p>
-      </details>
- 2. 從左側選單中選擇 **RepoGallery** workflow
- 3. 你會看到警告 **Scheduled workflows are disabled by default in forks**
-      <details>
-      <summary>點擊 <strong>Enable workflow</strong> 按鈕</summary>
-         <p align="left"><img width="100%" style="padding: 10px;" src="../assets/doc_img/repogallery_action_enable.png" alt=""/></p>
-      </details>
+### 步驟 3. **執行**
 
-### 第 3 步：**手動觸發 GitHub Action（可選但建議）**
-
-> [!TIP]\
-> 如果你想自訂你的展示頁，可以**略過此步驟，直接進行第 4 步**。
-
-為了確保 GitHub Actions 運作正常，可手動觸發 workflow：
-
-1. 前往 **Actions** <img src="../assets/doc_img/actions.png" style="height: 20px !important;width: 20px !important;" > 分頁
-2. 從左側選單中選擇 **RepoGallery** workflow
-3. 點擊 **Run workflow** 按鈕
+前往 **Actions** <img src="img/actions.png" style="height: 20px !important;width: 20px !important;" > 分頁，
+選擇 **RepoGallery**，點擊 **Run workflow**。
 
 > [!NOTE]\
-> workflow 也會在每天 UTC 00:00 自動執行 🕛。\
-> **對 `main` 分支的任何 `push` 也會觸發 workflow**。
+> 它也會在**每天 UTC 00:00** 自動執行 🕛，以及**每次 push 到 `main`** 時執行。
 
-### 第 4 步：**個人化設定（可選）**
+### 步驟 4. **個人化設定（選用）**
 
-:art: 你可以透過編輯 `config.yaml` 來自訂展示，包括：
-- 更改網站標題
-- 調整佈景主題顏色
-- 以及更多選項！
+:art: 編輯 `config.yaml` 來自訂你的展示頁：標題、佈景主題、要顯示哪些 repo、排序方式等等。
+所有選項都寫在 [**config.yaml**](../config.yaml) 的註解裡。
 
-編輯完成後，**commit 並 push** 你的變更。
+commit 並 push，這個 push 就會重新部署頁面。
 
-> [!TIP]\
-> 若你**沒有**手動觸發第 3 步，此次 `push` **將會觸發 workflow 並自動部署你的展示頁面**。\
-> 想了解更多使用方式，請參考 [**config.yaml**](config.yaml)。
+### 步驟 5. **打開你的 RepoGallery 頁面**
 
-### 第 5 步：**查看你的 RepoGallery 頁面**
+📌 `https://<你的-github-使用者名稱>.github.io/<你的-repo-名稱>`
 
-當 GitHub Actions 執行成功並且 GitHub Pages 部署完成後（可能需要幾分鐘），你的展示頁將可以在以下網址使用：
+## 🔄 如何升級
 
-📌 `https://<your-github-username>.github.io/RepoGallery`
+不用同步，也不會有合併衝突。
 
-> [!TIP]\
-> 你也可以在倉庫的 **About** 設定中，點擊 **Use your GitHub Pages website** 找到此 URL。
+你的 workflow pin 在 `anlit75/RepoGallery@v1`。`v1` 這個 tag 永遠指向最新的 `1.x` 版本，
+所以**修好的 bug 和新功能會在下一次排程執行時自動送達**，你什麼都不用做。
 
-## 🔄 如何保持更新
+當有破壞性變更的 `v2` 發佈時，release notes 會說明改了什麼；升級只要改一行：
 
-如果你想與 RepoGallery 專案保持同步，請依照下列步驟：
-
-### **A. 如果你沒修改 config.yaml 或不介意丟失變更**
-1. 前往你 Fork 的倉庫
-2. 點擊 **Sync Fork** <br>
-   <img src="../assets/doc_img/sync_fork.png" style="padding: 10px; width: 30%;" >
-3. 點擊 **Discard n commits** <br>
-   <img src="../assets/doc_img/discard_commits.png" style="padding: 10px; width: 50%;" >
-4. 完成！
-
-> [!WARNING]\
-> 如果你想保留自己的變更，**不要**點擊 **Discard n commits**。\
-> 這會將你的 Fork 重置為與原專案相同狀態。
-
-### **B. 如果你已修改 config.yaml 並希望保留變更**
-在終端機執行以下命令：
-```bash
-#!/bin/bash
-cd RepoGallery
-chmod +x sync.sh
-./sync.sh
+```diff
+-      - uses: anlit75/RepoGallery@v1
++      - uses: anlit75/RepoGallery@v2
 ```
 
-## 🛠 運作方式（給好奇的你）
+如果想鎖定特定版本，可以直接寫完整的 tag，例如 `anlit75/RepoGallery@v1.0.0`。
 
-當 GitHub Actions（`repo_gallery.yaml`）執行時，它會自動執行 `generate_html.py`，並且：
+### 從 fork 版本遷移（v1.2.0 以前）
 
-1. 讀取 `config.yaml`
-2. 使用 `templates/` 資料夾中的模板生成新的 html 檔案
+舊版本是用 fork 的方式安裝的。遷移方式：
 
-接著 GitHub Actions 會將最新內容部署到 GitHub Pages。
+1. 在你的 fork 裡，刪掉 `config.yaml` 和 `assets/custom_image.yaml` **以外**的所有檔案。
+2. 把 `examples/starter/.github/workflows/gallery.yml` 複製進去。
+3. 從你的 `config.yaml` 移除 `site.version` 這個欄位，它已經不存在了。
+4. 可以補上 `site.author` 和 `site.email`。舊版把上游作者的資訊寫死在頁面裡，
+   新版顯示的是你的（留空則不顯示）。
+5. commit 並 push。
+
+你的 Pages 網址和設定都會保留。
+
+## ⚙️ Action 參數
+
+| 參數 | 預設值 | 說明 |
+|---|---|---|
+| `username` | repository 擁有者 | 要顯示哪個 GitHub 使用者的 repo |
+| `token` | `github.token` | 呼叫 GitHub API 用的 token |
+| `config` | `config.yaml` | 設定檔路徑 |
+| `output` | `public` | 產生的網站寫到哪個目錄 |
+| `assets` | `assets` | 你自己的檔案，會一起發佈到網站 |
+| `python-version` | `3.11` | 執行產生器的 Python 版本 |
+
+## 🛠 運作原理（給好奇的人）
+
+`action.yml` 會執行 `scripts/generate_html.py`，它會：
+
+1. 讀取你 repository 裡的 `config.yaml`
+2. 透過 GitHub API 取得你的 repositories
+3. 把 `templates/v1/` 渲染成 `public/`
+
+接著你的 workflow 把 `public/` 交給 `actions/deploy-pages`。
 
 ### 想了解更多？
-歡迎查看：
-- `script/` 資料夾內的腳本
-- `templates/` 資料夾內的模板
+可以看看 `scripts/`、`templates/` 和 `tests/` 這幾個資料夾。
 
 ## ☕ 請我喝杯咖啡
-如果你喜歡這個專案，希望我能持續改進，可以請我喝杯咖啡！ <br>
-在 Buy Me a Coffee 支持我的工作 :sparkling_heart:
+喜歡這個專案嗎？請我喝杯咖啡，讓我有動力繼續改進它！<br>
+在 Buy Me a Coffee 上支持我 :sparkling_heart:
 
 <a href="https://www.buymeacoffee.com/anlit" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 40px !important;width: 150px !important;" ></a>
 
 ## 📄 授權
 
-此專案採用 [Apache License 2.0](LICENSE) 授權。
+本專案採用 [Apache License 2.0](../LICENSE) 授權。

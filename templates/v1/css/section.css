@@ -235,7 +235,10 @@
   margin-top: 10px;
   gap: 45px;
 }
-.content-bottom button {
+.content-bottom button,
+.content-bottom .demo-link {
+  text-decoration: none;
+  border-radius: var(--border-radius);
   display: flex;
   align-items: center;
   padding: 4px 10px;

@@ -92,10 +92,11 @@
       $(this).addClass("active");
 
       var sortBy = $(this).attr("data-sort");
+      var descending = $("#sort-dropdown").data("sort-descending") !== false;
 
       cardGrid.isotope({
         sortBy: sortBy,
-        sortAscending: false,
+        sortAscending: !descending,
       });
     });
   });

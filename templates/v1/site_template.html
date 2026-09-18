@@ -24,31 +24,35 @@
 <html lang="en" data-bs-theme="{{ theme }}">
   <head>
     <meta charset="utf-8" />
-    <title>RepoGallery</title>
-    <meta name="author" content="Ting-An Cheng" />
-    <meta name="keywords" content="RepoGallery" />
+    <title>{{ title or "RepoGallery" }}</title>
+    <meta name="author" content="{{ author }}" />
     <meta name="description" content="{{ description }}" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="shortcut icon" type="image/x-icon" href="{{ site_icon }}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="{{ title or 'RepoGallery' }}" />
+    <meta property="og:description" content="{{ description }}" />
+    {% if user_img %}<meta property="og:image" content="{{ user_img }}" />{% endif %}
+    <meta name="twitter:card" content="summary" />
+    {% if site_icon %}<link rel="shortcut icon" href="{{ site_icon }}" />{% endif %}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"/>
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"/>
-    <link rel="stylesheet" href="templates/{{ version }}/css/style.css" />
+    <link rel="stylesheet" href="css/style.css" />
   </head>
 
   <body>
     <!--Header Section-->
     <header class="header-section">
       <div class="container">
-        <a href="index.html" class="float-left">RepoGallery</a>
+        <a href="index.html" class="float-left">{{ author }}</a>
         <div class="float-right">
-          <button class="theme-toggle" id="theme-toggle">
+          <button class="theme-toggle" id="theme-toggle" aria-label="Toggle colour theme">
             {% if theme == "light" %}
             <ion-icon name="moon"></ion-icon>
             {% else %}
             <ion-icon name="sunny"></ion-icon>
             {% endif %}
           </button>
-          <button class="menu-toggle">
+          <button class="menu-toggle" aria-label="Toggle menu">
             <ion-icon name="menu"></ion-icon>
           </button>
         </div>
@@ -61,7 +65,7 @@
         <nav class="menu">
           <ul>
             <li class="active"><a href="index.html">home</a></li>
-            <li><a href="mailto:{{ email }}">contact</a></li>
+            {% if email %}<li><a href="mailto:{{ email }}">contact</a></li>{% endif %}
           </ul>
         </nav>
       </div>
@@ -73,7 +77,7 @@
         <div class="row">
           {% if user_img %}
           <div class="hero-image col-sm-6 col-xs-12">
-            <img src="{{ user_img }}" alt="" />
+            <img src="{{ user_img }}" alt="{{ author }}" />
           </div>
           {% endif %}
           <div class="hero-content col-sm-6 col-xs-12">
@@ -92,8 +96,8 @@
           {% for filter in filters %}
           <button data-filter="{{ filter }}">{{ filter }}</button>
           {% endfor %}
-          <div class="btn-group" id="sort-dropdown">
-            <button type="button" id="card-sort" data-bs-toggle="dropdown" aria-expanded="false">
+          <div class="btn-group" id="sort-dropdown" data-sort-descending="{{ 'true' if sort_descending else 'false' }}">
+            <button type="button" id="card-sort" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Sort projects">
               <ion-icon name="swap-vertical"></ion-icon>
             </button>
             <ul class="dropdown-menu">
@@ -105,7 +109,7 @@
             </ul>
           </div>
           <div class="form-inline">
-            <button type="button" id="toggle-filter-search">
+            <button type="button" id="toggle-filter-search" aria-label="Search projects">
               <ion-icon name="search"></ion-icon>
             </button>
             <input type="text" class="form-control" id="card-filter-text" placeholder="Search Projects or Tags"/>
@@ -125,32 +129,34 @@
     <footer class="footer-section">
       {% if footer.show %}
       <div class="container footer-top">
-        <a href="https://github.com/{{ username }}"><ion-icon name="logo-github"></ion-icon></a>
+        <a href="https://github.com/{{ username }}" aria-label="GitHub"><ion-icon name="logo-github"></ion-icon></a>
         {% for icon, href in zip(footer.icons, footer.href) %}
-        <a href="{{ href }}"><ion-icon name="logo-{{ icon }}"></ion-icon></a>
+        <a href="{{ href }}" aria-label="{{ icon }}"><ion-icon name="logo-{{ icon }}"></ion-icon></a>
         {% endfor %}
-        <a href="mailto:{{ mail }}"><ion-icon name="mail"></ion-icon></a>
+        {% if email %}<a href="mailto:{{ email }}" aria-label="Email"><ion-icon name="mail"></ion-icon></a>{% endif %}
       </div>
       {% endif %}
       <div class="footer-bottom">
         <div class="container">
           <div class="footer-copyright">
-            <p>Copyright &copy; 2025 <a href="https://github.com/anlit75">Ting-An Cheng</a></p>
-            <p class="auto-gen">Auto build by <a href="https://github.com/anlit75/RepoGallery">anlit75@RepoGallery</a> on {{ build_time }}</p>
+            <p>Copyright &copy; <a href="https://github.com/{{ username }}">{{ author }}</a></p>
+            <p class="auto-gen">Built with <a href="https://github.com/anlit75/RepoGallery">RepoGallery</a> on {{ build_time }}</p>
           </div>
+          {% if email %}
           <div class="footer-contact">
-            <p><span>Email :</span><a href="mailto:611415132@alum.ccu.edu.tw">611415132@alum.ccu.edu.tw</a></p>
+            <p><span>Email :</span><a href="mailto:{{ email }}">{{ email }}</a></p>
           </div>
+          {% endif %}
         </div>
       </div>
     </footer>
 
     <!-- JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-    <script src="templates/{{ version }}/js/plugins.js"></script>
-    <script src="templates/{{ version }}/js/main.js"></script>
+    <script src="js/plugins.js"></script>
+    <script src="js/main.js"></script>
   </body>
 </html>
