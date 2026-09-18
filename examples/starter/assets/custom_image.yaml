@@ -14,4 +14,4 @@
 #       if the random_image is set to true, the random image will be shown,
 #       if the random_image is set to false, the text card will be shown.
 
-RepoGallery: assets/repogallery.png
+# MyProject: assets/my-project.png

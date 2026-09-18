@@ -5,9 +5,20 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),\
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.0.1] - 2026-09-18
+### Fixed
+- `examples/starter/assets/custom_image.yaml` still mapped `RepoGallery` to an image that
+  only exists in this repository, so anyone who kept the default repository name got a
+  broken card image instead of a random one.
+
+### Added
+- `tests/test_starter.py`, which generates a site from `examples/starter` with the workspace
+  and the action path in separate directories and asserts every local reference resolves.
+  `demo.yml` cannot catch this: `uses: ./` makes those two directories the same one.
+
 ## [2.0.0] - 2026-09-18
 ### Changed
-- **BREAKING**: RepoGallery is now installed as a GitHub Action (`anlit75/RepoGallery@v1`)\
+- **BREAKING**: RepoGallery is now installed as a GitHub Action (`anlit75/RepoGallery@v2`)\
   instead of by forking. Your repository holds three files; the generator stays upstream,\
   so upgrades no longer produce merge conflicts. See "Migrating from a fork" in the README.
 - `generate_html.py` now takes `--config`, `--templates`, `--output` and `--assets`\
@@ -15,15 +26,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - The site is written to `public/` with `css/`, `js/` and `img/` beside it; template paths\
   are no longer versioned, so `site.version` was removed from `config.yaml`.
 
-### Added
-- Regression tests (`tests/`) and a CI workflow running them on every pull request.
-- A release workflow that moves the floating major tag, so patches reach pinned users.
-
-### Changed
 - Pinned actions moved to the releases that run on Node.js 24, ahead of the Node.js 20
   runner deprecation: `checkout@v5`, `setup-python@v6`, `upload-pages-artifact@v5` and
   `deploy-pages@v5`. `upload-pages-artifact` now excludes dotfiles from the artifact by
   default; pass `include-hidden-files: true` if your site needs them.
+
+### Added
+- Regression tests (`tests/`) and a CI workflow running them on every pull request.
+- A release workflow that moves the floating major tag, so patches reach pinned users.
 
 ### Fixed
 - Only the first 30 repositories were ever fetched; the API is now paginated.
