@@ -13,7 +13,7 @@
   <div class="img-wrap">
     <a href="{{ repo.repo_url }}">
       {% if image_data.image %}
-      <img src="{{ image_data.image }}" alt="" />
+      <img src="{{ image_data.image }}" alt="{{ repo.name }}" />
       {% else %}
       <div class="project-image-fallback">{{ repo.name }}</div>
       {% endif %}
@@ -23,14 +23,13 @@
           <i class="state-item ion-android-star-outline"><span>{{ repo.stars }}</span></i>
           <i class="state-item ion-fork-repo"><span>{{ repo.forks }}</span></i>
           <i class="state-item ion-pull-request"><span>{{ repo.prs }}</span></i>
-          <!-- <img src="{{ repo.license_url }}" /> -->
         </div>
       </div>
     </a>
     {% if image_data.display_url %}
     <!-- Image Credit -->
     <div class="image-credit">
-      <a href="{{ image_data.display_url }}">@{{ image_data.author }}</a>
+      <a href="{{ image_data.display_url }}" rel="noopener">@{{ image_data.author }}</a>
     </div>
     {% endif %}
   </div>
@@ -51,7 +50,7 @@
       </div>
       {% if url %}
       <!-- Live Demo Button -->
-      <button onclick="location.href='{{ url }}'"><span>Live Demo <i class="ion-radio-waves"></i></span></button>
+      <a class="demo-link" href="{{ url }}" rel="noopener"><span>Live Demo <i class="ion-radio-waves"></i></span></a>
       {% endif %}
     </div>
   </div>

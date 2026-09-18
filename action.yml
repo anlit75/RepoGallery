@@ -1,0 +1,49 @@
+name: RepoGallery
+description: Build a static gallery page from your public GitHub repositories.
+author: Ting-An Cheng
+branding:
+  icon: grid
+  color: green
+
+inputs:
+  username:
+    description: GitHub user whose repositories are shown.
+    default: ${{ github.repository_owner }}
+  token:
+    description: Token used for the GitHub API. The default job token is enough for public repos.
+    default: ${{ github.token }}
+  config:
+    description: Path to config.yaml, relative to the workspace.
+    default: config.yaml
+  output:
+    description: Directory the generated site is written to.
+    default: public
+  assets:
+    description: Directory of your own files (custom images) published alongside the site.
+    default: assets
+  python-version:
+    description: Python version used to run the generator.
+    default: "3.11"
+
+runs:
+  using: composite
+  steps:
+    - uses: actions/setup-python@v5
+      with:
+        python-version: ${{ inputs.python-version }}
+
+    - name: Install generator dependencies
+      shell: bash
+      run: pip install --disable-pip-version-check -r "$GITHUB_ACTION_PATH/requirements.txt"
+
+    - name: Generate site
+      shell: bash
+      env:
+        GITHUB_USERNAME: ${{ inputs.username }}
+        GITHUB_TOKEN: ${{ inputs.token }}
+      run: |
+        python "$GITHUB_ACTION_PATH/scripts/generate_html.py" \
+          --config "${{ inputs.config }}" \
+          --templates "$GITHUB_ACTION_PATH/templates/v1" \
+          --output "${{ inputs.output }}" \
+          --assets "${{ inputs.assets }}"
