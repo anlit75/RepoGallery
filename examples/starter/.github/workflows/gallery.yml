@@ -30,5 +30,8 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
+      # Fails with a clear message when Pages has not been switched to the
+      # "GitHub Actions" source yet, instead of letting deploy-pages fail later.
+      - uses: actions/configure-pages@v6
       - id: deployment
         uses: actions/deploy-pages@v5

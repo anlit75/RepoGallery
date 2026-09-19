@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),\
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.1.1] - 2026-09-19
+### Fixed
+- Restored `actions/configure-pages` in the deploy job, at `v6` for the Node.js 24 runtime.
+  The pre-2.0.0 workflow had it and the migration dropped it. It does not remove the manual
+  "Settings > Pages > Source: GitHub Actions" step — `enablement` needs a token other than
+  `GITHUB_TOKEN` — but it fails with a readable message when that step was skipped, rather
+  than leaving `deploy-pages` to fail later for an unclear reason.
+
 ## [2.1.0] - 2026-09-18
 ### Changed
 - Dependencies are now declared in `pyproject.toml` and resolved by uv, with `uv.lock`
