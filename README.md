@@ -7,7 +7,7 @@
 
 <br>
 
-<p align="center"> <a href="https://anlit75.github.io/RepoGallery">View Live Demo</a>  |  <a href="https://anson-cheng.github.io/RepoGallery-demo-dark">And More</a></p>
+<p align="center"> <a href="https://anlit75.github.io/RepoGallery">Live Demo (light)</a>  |  <a href="https://anlit75.github.io/RepoGallery-demo-dark">Live Demo (dark)</a></p>
 
 <br>
 
