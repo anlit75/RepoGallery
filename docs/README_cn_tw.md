@@ -7,7 +7,7 @@
 
 <br>
 
-<p align="center"> <a href="https://anlit75.github.io/RepoGallery">觀看線上範例</a>  |  <a href="https://anson-cheng.github.io/RepoGallery-demo-dark">更多範例</a></p>
+<p align="center"> <a href="https://anlit75.github.io/RepoGallery">線上範例（亮色）</a>  |  <a href="https://anlit75.github.io/RepoGallery-demo-dark">線上範例（暗色）</a></p>
 
 <br>
 
